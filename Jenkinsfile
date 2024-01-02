@@ -22,9 +22,7 @@ node {
     }
 
     stage('Pre-Build Cleanup') {
-        steps {
             sh 'rm -rf ~/.gradle/caches'
-        }
     }
 
     stage ('Gradle Build') {

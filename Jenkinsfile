@@ -21,6 +21,12 @@ node {
         rtGradle.resolver repo: 'jcenter', server: server
     }
 
+    stage('Pre-Build Cleanup') {
+        steps {
+            sh 'rm -rf ~/.gradle/caches'
+        }
+    }
+
     stage ('Gradle Build') {
         buildInfo = rtGradle.run rootDir: "./", tasks: 'clean build'
     }
